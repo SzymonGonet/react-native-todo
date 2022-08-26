@@ -1,12 +1,16 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
+import { StyleSheet } from "react-native";
+import React, { useContext } from "react";
+import { Context } from "../context/BlogContext";
+import BlogPostForm from "../components/BlogPostForm";
 
-const EditScreen = () => {
-  return (
-    <View>
-      <Text>EditScreen</Text>
-    </View>
+const EditScreen = ({ navigation }) => {
+  const { state } = useContext(Context);
+
+  const blogPost = state.find(
+    (blogPost) => blogPost.id === navigation.getParam("id")
   );
+
+  return <BlogPostForm />;
 };
 
 const styles = StyleSheet.create({});
